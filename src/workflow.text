@@ -1,0 +1,19 @@
+const dbRef = firebase.database().ref('/This will be a name state variable');
+const pushResponse = dbRef.push({message:'messagetesting'})
+    once dbRef is referencing the name I can push like This
+
+// function to grab FB data to display
+dbRef.on('value', (data) => {
+  // when dbRef is updated by name state, newObject will pull all messages for that person
+  const newObject = data.val();
+  // need to store keys in an array to access each message later
+  const keyArray = [];
+  // stores each key in the array
+  for(let key in newObject){
+    keyArray.push(key)
+  }
+  // forEach key I am console.logging the message
+  keyArray.forEach((index) => {
+    console.log(newObject[index].message)
+  })
+})
