@@ -1,23 +1,24 @@
 import {useState, useEffect} from 'react';
+import firebase from './firebase';
 
 
-
-const ShowMessages = ({dbRef}) => {
+const ShowMessages = ({nameSearched}) => {
     const [messages, setMessages] = useState([]);
+    const dbRef = firebase.database().ref(`/${nameSearched}`);
 
     useEffect (() => {
         dbRef.on('value', (response) => {
             // variable to store new state to show on app
-            const newMessages = [];
+            const showMessages = [];
             // store response from firebase .val() method gets the info wanted
             const fbData = response.val()
             // since fbData is an object, use for in loop to access each message
             for (let key in fbData){
             // push each message to newMessages array
-            newMessages.push(fbData[key])
+            showMessages.push(fbData[key])
             }
             // call setMessages to updated component's stats using newMessages array
-            setMessages(newMessages);
+            setMessages(showMessages);
         })
     }, []);
 

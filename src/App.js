@@ -1,52 +1,84 @@
 import './App.scss';
-import firebase from './firebase';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-import ShowMessages from './MessageList';
+import ShowMessages from './ShowMessages';
 import PostMessage from './MessagePost';
+import NameInput from './NameInput';
 
 function App() {
-  const dbRef = firebase.database().ref();
   const [viewMessages, setViewMessages] = useState(false);
   const [viewPostMessage, setViewPostMessage] = useState(false);
+  const [showMyMessages, setShowMyMessages] = useState(false);
+  const [nameInput, setNameInput] = useState('');
 
-  const handleViewClick = (event) => {
-    event.preventDefault();
+
+  // fires when user selects to go to messages
+  // mounts the ShowMessages component
+  // ensures PostMessage component is not mounted
+  const handleShowMessageClick = (event) => {
+    event.preventDefault();   
     setViewPostMessage(false);
-    setViewMessages(!viewMessages);
+    setViewMessages(true);
   };
 
-  const handlePostClick = (event) => {
+  // fires when user selects to post a message
+  // mounts PostMessage component 
+  // ensures ShowMessages component is not mounted
+  const handlePostMessageClick = (event) => {
     event.preventDefault();
-    console.log(event)
     setViewMessages(false);
-    setViewPostMessage(!viewPostMessage);
+    setViewPostMessage(true);
   };
 
-  // useEffect (() => {
-  //   viewMessages === true ? setViewMessages(false) : setViewMessages(true)
-  // }, [viewPostMessage]);
+  // fires every time the nameInput changes
+  const handleNameChange = (event) => {
+    setNameInput(event.target.value);
+    // reset showMyMessages when user types new name while viewing messages
+    setShowMyMessages(false)
+  }
 
-  //   useEffect (() => {
-  //   viewPostMessage === true ? setViewPostMessage(false) : setViewPostMessage(true)
-  // }, [viewMessages]);
+  const handleShowMessages = (event) => {
+    event.preventDefault();
+    setShowMyMessages(true);
+  }
 
   return(
-    // first component will mount when show message button is pushed
+    // ShowMessages will mount with 
     // second component will mount when post message button is pushed
     <>
-      <button onClick={handlePostClick}>Post a Message</button>
-      <button onClick={handleViewClick}>View My Messages</button>
+      <button onClick={handlePostMessageClick}>Post a Message</button>
+      <button onClick={handleShowMessageClick}>View My Messages</button>
 
       {
         viewMessages === true
-        ? <ShowMessages dbRef={dbRef}/>
+        ? 
+        <>
+          <NameInput 
+            handleNameChange={handleNameChange} 
+            nameInput={nameInput}
+          />
+          <button onClick={handleShowMessages}>Get my Messages</button>
+          {
+            showMyMessages === true
+            ?
+            <ShowMessages nameSearched={nameInput} />
+            : null
+          }
+        </>
         : null
       }
 
       {
         viewPostMessage === true
-        ? <PostMessage dbRef={dbRef}/>
+        ? 
+        <>
+          
+          <PostMessage 
+            handleNameChange={handleNameChange}
+            nameInput={nameInput}
+            setNameInput={setNameInput}
+          />
+        </>
         : null
       }
     </>

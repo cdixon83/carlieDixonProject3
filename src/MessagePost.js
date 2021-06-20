@@ -1,37 +1,48 @@
 import {useState} from 'react';
+import firebase from './firebase';
+import NameInput from './NameInput';
 
-const PostMessage = ({dbRef}) => {
-    const [userInput, setUserInput] = useState('');
 
-    // fires every time the input changes
+
+const PostMessage = ({handleNameChange, setNameInput, nameInput}) => {
+    const [messageInput, setMessageInput] = useState('');
+    const dbRef = firebase.database().ref(`/${nameInput}`);
+    // fires every time the messageInput changes
     const handleMessageChange = (event) => {
-        setUserInput(event.target.value);
+        setMessageInput(event.target.value);
     };
 
+    // check if nameSearched is valid
     // fires on message submit
-    // pushes userInput to fb
-    // resets userInput
+    // pushes messageInput to fb
+    // resets messageInput
     const handlePost = (event) => {
         event.preventDefault();
-        dbRef.push(userInput);
-        setUserInput('');
+
+        if (nameInput === '') {
+            return (
+                alert('please pick a name')
+            )
+        } 
+        dbRef.push(messageInput)
+        setMessageInput('')
+        setNameInput('')
     };
 
     return (
         <>
+            <NameInput handleNameChange={handleNameChange} />
             <form action="submit">
-                {/* <label htmlFor="name">Post to:</label>
-                <input type="text" id="name" /> */}
                 <label htmlFor="newMessage">Tell your friend why they are totally awesome</label>
                 <textarea 
-                id="newMessage" 
-                onChange={handleMessageChange}
-                value={userInput}
+                    id="newMessage" 
+                    onChange={handleMessageChange}
+                    value={messageInput}
                 />
                 <button onClick={handlePost}>Send Message</button>
             </form>
         </>
-    )
+    );
 };
 
 export default PostMessage;
