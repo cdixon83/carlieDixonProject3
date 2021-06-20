@@ -17,3 +17,14 @@ dbRef.on('value', (data) => {
     console.log(newObject[index].message)
   })
 })
+
+
+June 20 - Questions
+- Better way to handle my alter when nameInput is empty
+- Need to see if I can make more components
+
+Monday Goal
+- first draft of style
+
+Tuesday 
+- final styles

@@ -37,8 +37,16 @@ function App() {
     setShowMyMessages(false)
   }
 
+  // mounts message component
+  // message component was unmounted on load
+  // message component is unmounted by change in nameInput
   const handleShowMessages = (event) => {
     event.preventDefault();
+    if (nameInput === '') {
+            return (
+                alert("But wait, I don't know how you are, how can I find all of your wonderful messages if you don't enter your name?")
+            )
+        }  
     setShowMyMessages(true);
   }
 

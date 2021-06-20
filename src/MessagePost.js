@@ -19,9 +19,9 @@ const PostMessage = ({handleNameChange, setNameInput, nameInput}) => {
     const handlePost = (event) => {
         event.preventDefault();
 
-        if (nameInput === '') {
+        if (nameInput === '' || messageInput === '') {
             return (
-                alert('please pick a name')
+                alert("Your friends will never know how awesome they are if you don't enter their name and a message!")
             )
         } 
         dbRef.push(messageInput)
@@ -31,7 +31,10 @@ const PostMessage = ({handleNameChange, setNameInput, nameInput}) => {
 
     return (
         <>
-            <NameInput handleNameChange={handleNameChange} />
+            <NameInput 
+                handleNameChange={handleNameChange} 
+                nameInput={nameInput}
+            />
             <form action="submit">
                 <label htmlFor="newMessage">Tell your friend why they are totally awesome</label>
                 <textarea 
