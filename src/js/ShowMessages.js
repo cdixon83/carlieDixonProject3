@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import firebase from './firebase';
+import firebase from '../firebase';
 
 
 const ShowMessages = ({nameSearched}) => {
@@ -20,7 +20,8 @@ const ShowMessages = ({nameSearched}) => {
             // call setMessages to updated component's stats using newMessages array
             setMessages(showMessages);
         })
-    }, []);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
 
     // return a list of messages from firebase
     return (

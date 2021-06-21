@@ -1,9 +1,9 @@
 import './App.scss';
 import { useState } from 'react';
 
-import ShowMessages from './ShowMessages';
-import PostMessage from './MessagePost';
-import NameInput from './NameInput';
+import ShowMessages from './js/ShowMessages';
+import PostMessage from './js/MessagePost';
+import NameInput from './js/NameInput';
 
 function App() {
   const [viewMessages, setViewMessages] = useState(false);
@@ -19,6 +19,7 @@ function App() {
     event.preventDefault();   
     setViewPostMessage(false);
     setViewMessages(true);
+    setNameInput('');
   };
 
   // fires when user selects to post a message
@@ -28,11 +29,13 @@ function App() {
     event.preventDefault();
     setViewMessages(false);
     setViewPostMessage(true);
+    setNameInput('');
   };
 
   // fires every time the nameInput changes
   const handleNameChange = (event) => {
-    setNameInput(event.target.value);
+    const updatedName = event.target.value.toUpperCase();
+    setNameInput(updatedName);
     // reset showMyMessages when user types new name while viewing messages
     setShowMyMessages(false)
   }
