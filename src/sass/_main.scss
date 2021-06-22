@@ -1,0 +1,38 @@
+// styles for Give a Compliment and Message Views
+h2 {
+    @include fontStyles (2rem, 700);
+    text-align: center;
+}
+
+.giveCompliment,
+.viewMessages {
+    @include flexbox (space-between, column);
+    width: 55%;
+    margin: 0 auto;
+    label {
+        @include fontStyles (1.2rem, 400);
+        margin: 5px 0;
+    }
+    input,
+    textarea {
+        @include fontStyles (1.2rem, 400);
+        @include textBoxBorder;
+    }
+    textarea {
+        height: 180px;
+    }
+}
+
+// submit buttons
+.submit {
+    @include fontStyles (1.2rem, 400, normal, $light);
+    border: none;
+    background-color: $secondAccent;
+    width: 200px;
+    height: 50px;
+    margin: 25px auto;
+}
+
+.submit:hover {
+    background-color: $accent;
+}

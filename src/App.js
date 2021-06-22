@@ -35,49 +35,44 @@ function App() {
   }
 
   return(
-  
     <>
       <Header 
         setViewMessages={setViewMessages} 
         setViewPostMessage={setViewPostMessage} 
         setNameInput={setNameInput}
       />
-      
-      
 
-      {
-        viewMessages === true
+      {viewMessages === true
         ? 
-          <>
-            <NameInput 
-              name='What is your name?'
-              handleNameChange={handleNameChange} 
-              nameInput={nameInput}
-            />
-            <button onClick={handleShowMessages}>See messages</button>
+          <main>
+            <form action="submit" className="viewMessages" onSubmit={handleShowMessages}>
+              <NameInput 
+                handleNameChange={handleNameChange} 
+                nameInput={nameInput}
+                name='What is your name?'
+              />
+              <button type="submit" className="submit">See messages</button>
+            </form>
             {
               showMyMessages === true
               ?
               <ShowMessages nameSearched={nameInput} />
               : null
             }
-          </>
-        : null
-      }
+          </main>
+        : null}
 
-      {
-        viewPostMessage === true
+      {viewPostMessage === true
         ? 
-          <>
-            
+          <main>
+            <h2>Give a compliment</h2>
             <PostMessage 
               handleNameChange={handleNameChange}
               nameInput={nameInput}
               setNameInput={setNameInput}
             />
-          </>
-        : null
-      }
+          </main>
+        : null}
     </>
   )
 

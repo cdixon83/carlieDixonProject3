@@ -5,7 +5,7 @@
 $mainColor: #98d2eb;
 $accent: #d42d49;
 $secondAccent: #AC21FD;
-$primary: #161925;
+$primary: #40455B;
 $light: #fff;
 
 $fontMain: 'Poppins', 'sans-serif';
@@ -25,8 +25,13 @@ $fontMain: 'Poppins', 'sans-serif';
     flex-direction: $direction;
 }
 
+@mixin textBoxBorder {
+    border: 1px solid #969595;
+}
+
 
 // partials
 @import "./sass/normalize";
 @import "./sass/basicStyles";
 @import "./sass/header";
+@import "./sass/main";
