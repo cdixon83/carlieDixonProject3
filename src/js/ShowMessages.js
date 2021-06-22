@@ -27,13 +27,14 @@ const ShowMessages = ({nameSearched}) => {
     return (
         <>
             <ul>
-            {messages.map((message, index) => {
+                <li>Sorry, messages are currently unavailable!</li>
+            {/* {messages.map((message, index) => {
                 return (
                 <li key={messages[index]}>
                     <p>{message}</p>
                 </li>
                 )
-            })}
+            })} */}
             </ul>
         </>
     );
