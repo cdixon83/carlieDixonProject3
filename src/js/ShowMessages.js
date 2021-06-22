@@ -4,7 +4,7 @@ import firebase from '../firebase';
 
 const ShowMessages = ({nameSearched}) => {
     const [messages, setMessages] = useState([]);
-    const dbRef = firebase.database().ref(`/${nameSearched}`);
+    const dbRef = firebase.database().ref(`/${nameSearched.toLowerCase()}`);
 
     useEffect (() => {
         dbRef.on('value', (response) => {

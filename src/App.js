@@ -1,6 +1,7 @@
 import './App.scss';
 import { useState } from 'react';
 
+import Header from './js/Header';
 import ShowMessages from './js/ShowMessages';
 import PostMessage from './js/MessagePost';
 import NameInput from './js/NameInput';
@@ -34,7 +35,7 @@ function App() {
 
   // fires every time the nameInput changes
   const handleNameChange = (event) => {
-    const updatedName = event.target.value.toUpperCase();
+    const updatedName = event.target.value;
     setNameInput(updatedName);
     // reset showMyMessages when user types new name while viewing messages
     setShowMyMessages(false)
@@ -57,18 +58,20 @@ function App() {
     // ShowMessages will mount with 
     // second component will mount when post message button is pushed
     <>
-      <button onClick={handlePostMessageClick}>Post a Message</button>
-      <button onClick={handleShowMessageClick}>View My Messages</button>
+      <Header/>
+      <button className="nav" onClick={handlePostMessageClick}>Give a compliment</button>
+      <button className="nav" onClick={handleShowMessageClick}>See my messages</button>
 
       {
         viewMessages === true
         ? 
         <>
           <NameInput 
+            name='What is your name?'
             handleNameChange={handleNameChange} 
             nameInput={nameInput}
           />
-          <button onClick={handleShowMessages}>Get my Messages</button>
+          <button onClick={handleShowMessages}>See messages</button>
           {
             showMyMessages === true
             ?

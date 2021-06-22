@@ -6,7 +6,7 @@ import NameInput from './NameInput';
 
 const PostMessage = ({handleNameChange, setNameInput, nameInput}) => {
     const [messageInput, setMessageInput] = useState('');
-    const dbRef = firebase.database().ref(`/${nameInput}`);
+    const dbRef = firebase.database().ref(`/${nameInput.toLowerCase()}`);
     // fires every time the messageInput changes
     const handleMessageChange = (event) => {
         setMessageInput(event.target.value);
@@ -32,17 +32,18 @@ const PostMessage = ({handleNameChange, setNameInput, nameInput}) => {
     return (
         <>
             <NameInput 
+                name='Name of friend:'
                 handleNameChange={handleNameChange} 
                 nameInput={nameInput}
             />
             <form action="submit">
-                <label htmlFor="newMessage">Tell your friend why they are totally awesome</label>
+                <label htmlFor="newMessage">Message:</label>
                 <textarea 
                     id="newMessage" 
                     onChange={handleMessageChange}
                     value={messageInput}
                 />
-                <button onClick={handlePost}>Send Message</button>
+                <button onClick={handlePost}>Send compliment</button>
             </form>
         </>
     );
