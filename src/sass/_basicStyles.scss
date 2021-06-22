@@ -1,3 +1,8 @@
 body {
     background-color: $mainColor;
 }
+
+img {
+    max-width: 100%;
+    display: block;
+}

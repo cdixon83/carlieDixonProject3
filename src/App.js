@@ -1,6 +1,7 @@
 import './App.scss';
 import { useState } from 'react';
 
+import Header from './js/Header';
 import ShowMessages from './js/ShowMessages';
 import PostMessage from './js/MessagePost';
 import NameInput from './js/NameInput';
@@ -11,30 +12,10 @@ function App() {
   const [showMyMessages, setShowMyMessages] = useState(false);
   const [nameInput, setNameInput] = useState('');
 
-
-  // fires when user selects to go to messages
-  // mounts the ShowMessages component
-  // ensures PostMessage component is not mounted
-  const handleShowMessageClick = (event) => {
-    event.preventDefault();   
-    setViewPostMessage(false);
-    setViewMessages(true);
-    setNameInput('');
-  };
-
-  // fires when user selects to post a message
-  // mounts PostMessage component 
-  // ensures ShowMessages component is not mounted
-  const handlePostMessageClick = (event) => {
-    event.preventDefault();
-    setViewMessages(false);
-    setViewPostMessage(true);
-    setNameInput('');
-  };
-
   // fires every time the nameInput changes
+  // can this go in a component somewhere???????????????
   const handleNameChange = (event) => {
-    const updatedName = event.target.value.toUpperCase();
+    const updatedName = event.target.value;
     setNameInput(updatedName);
     // reset showMyMessages when user types new name while viewing messages
     setShowMyMessages(false)
@@ -47,49 +28,54 @@ function App() {
     event.preventDefault();
     if (nameInput === '') {
             return (
-                alert("But wait, I don't know how you are, how can I find all of your wonderful messages if you don't enter your name?")
+                alert("But wait, we don't know how you are, how can we find all of your wonderful messages if you don't enter your name?")
             )
         }  
     setShowMyMessages(true);
   }
 
   return(
-    // ShowMessages will mount with 
-    // second component will mount when post message button is pushed
+  
     <>
-      <button onClick={handlePostMessageClick}>Post a Message</button>
-      <button onClick={handleShowMessageClick}>View My Messages</button>
+      <Header 
+        setViewMessages={setViewMessages} 
+        setViewPostMessage={setViewPostMessage} 
+        setNameInput={setNameInput}
+      />
+      
+      
 
       {
         viewMessages === true
         ? 
-        <>
-          <NameInput 
-            handleNameChange={handleNameChange} 
-            nameInput={nameInput}
-          />
-          <button onClick={handleShowMessages}>Get my Messages</button>
-          {
-            showMyMessages === true
-            ?
-            <ShowMessages nameSearched={nameInput} />
-            : null
-          }
-        </>
+          <>
+            <NameInput 
+              name='What is your name?'
+              handleNameChange={handleNameChange} 
+              nameInput={nameInput}
+            />
+            <button onClick={handleShowMessages}>See messages</button>
+            {
+              showMyMessages === true
+              ?
+              <ShowMessages nameSearched={nameInput} />
+              : null
+            }
+          </>
         : null
       }
 
       {
         viewPostMessage === true
         ? 
-        <>
-          
-          <PostMessage 
-            handleNameChange={handleNameChange}
-            nameInput={nameInput}
-            setNameInput={setNameInput}
-          />
-        </>
+          <>
+            
+            <PostMessage 
+              handleNameChange={handleNameChange}
+              nameInput={nameInput}
+              setNameInput={setNameInput}
+            />
+          </>
         : null
       }
     </>

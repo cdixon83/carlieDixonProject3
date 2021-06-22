@@ -4,7 +4,7 @@ import firebase from '../firebase';
 
 const ShowMessages = ({nameSearched}) => {
     const [messages, setMessages] = useState([]);
-    const dbRef = firebase.database().ref(`/${nameSearched}`);
+    const dbRef = firebase.database().ref(`/${nameSearched.toLowerCase()}`);
 
     useEffect (() => {
         dbRef.on('value', (response) => {
@@ -27,13 +27,14 @@ const ShowMessages = ({nameSearched}) => {
     return (
         <>
             <ul>
-            {messages.map((message, index) => {
+                <li>Sorry, messages are currently unavailable!</li>
+            {/* {messages.map((message, index) => {
                 return (
                 <li key={messages[index]}>
                     <p>{message}</p>
                 </li>
                 )
-            })}
+            })} */}
             </ul>
         </>
     );

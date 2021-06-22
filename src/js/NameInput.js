@@ -1,9 +1,9 @@
 
 
-const NameInput = ({handleNameChange, nameInput}) => {
+const NameInput = ({handleNameChange, nameInput, name}) => {
     return (
         <>
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name">{name}</label>
             <input 
                 type="text" 
                 id="name" 

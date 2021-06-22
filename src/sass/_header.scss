@@ -1,0 +1,25 @@
+h1 {
+    @include fontStyles(3rem, 900, italic, $light);
+    margin-left: 2%;
+}
+
+.nav {
+    @include fontStyles(1.5rem, 500);
+    background-color: transparent;
+    border: none;
+    padding: 0 10px 0 10px;
+    margin-top: 40px;
+    border-bottom: transparent 2px solid;
+}
+
+.nav:hover {
+    border-bottom: $accent 2px solid;
+}
+
+.outerFlexbox {
+    @include flexbox(space-between);
+}
+
+.innerFlexbox {
+    @include flexbox(space-between);
+}
