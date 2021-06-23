@@ -38,7 +38,8 @@ h2 {
     margin: 25px auto;
 }
 
-.submit:hover {
+.submit:hover,
+.submit:focus {
     background-color: $accent;
 }
 

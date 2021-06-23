@@ -26,6 +26,11 @@
         color: $light;
         padding: 0;
     }
+
+    .nav:hover,
+    .nav:focus {
+        background-color: $accent;
+    }
 }
 
 @media (max-width: 475px) {
@@ -36,7 +41,7 @@
     .submit,
     .nav {
         font-size: 0.9rem;
-        width: 150px;
+        width: 155px;
         height: 40px;
     }
 
