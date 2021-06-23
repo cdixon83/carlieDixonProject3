@@ -35,10 +35,10 @@ const Header = ({setViewMessages, setViewPostMessage, setNameInput}) => {
                 </div>
             </div>
             <div className="imgContainer">
+                <img src={header} alt="Neon Rainbow Heart." />
                 <div className="textContainer">
                     <p className="intro">Need some positive vibes today? People think you are totally awesome and they are telling you why in your messages. Your friends need a boost too.  Leave them a message so they know someone cares.  Social media can be a positive place, if we all spread love, joy and motivation.</p>
                 </div>
-                <img src={header} alt="Neon Rainbow Heart." />
             </div>
         </header>
     )

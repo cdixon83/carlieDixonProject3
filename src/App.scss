@@ -30,9 +30,17 @@ $fontMain: 'Poppins', 'sans-serif';
     border: 1px solid #969595;
 }
 
+@mixin buttonStyle ($buttonW, $buttonH) {
+    border: none;
+    background-color: $secondAccent;
+    width: $buttonW;
+    height: $buttonH;
+}
+
 
 // partials
 @import "./sass/normalize";
 @import "./sass/basicStyles";
 @import "./sass/header";
 @import "./sass/main";
+@import "./sass/media";

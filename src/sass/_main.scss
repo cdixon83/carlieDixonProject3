@@ -1,5 +1,5 @@
 main {
-    min-height: 35vh;
+    min-height: 30vh;
     background-color: $mainColor;
     padding-top: 10px;
 }
@@ -34,10 +34,7 @@ h2 {
 // submit buttons
 .submit {
     @include fontStyles (1.2rem, 400, normal, $light);
-    border: none;
-    background-color: $secondAccent;
-    width: 200px;
-    height: 50px;
+    @include buttonStyle(200px, 50px);
     margin: 25px auto;
 }
 
