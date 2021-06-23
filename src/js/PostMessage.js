@@ -33,7 +33,7 @@ const PostMessage = ({handleNameChange, setNameInput, nameInput, dbRef}) => {
                 <NameInput 
                     handleNameChange={handleNameChange} 
                     nameInput={nameInput}
-                    name='Name of friend:'
+                    name='Full name of friend:'
                 />
 
                 <label htmlFor="newMessage">Message:</label>
