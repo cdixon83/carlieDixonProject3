@@ -24,13 +24,20 @@ const ShowMessages = ({dbRef}) => {
     return (
         <>
             <ul>
-                {messages.map((message, index) => {
-                    return (
-                        <li key={messages[index]}>
-                            <p>{message}</p>
+                {messages.length === 0
+                    ? 
+                        <li>
+                            <p>You are an amazing person who is loved!</p>
                         </li>
-                    )
-                })}
+                    :
+                        messages.map((message, index) => {
+                            return (
+                                <li key={messages[index]}>
+                                    <p>{message}</p>
+                                </li>
+                            )
+                        })
+                }
             </ul>
         </>
     );

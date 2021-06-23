@@ -24,6 +24,7 @@ const PostMessage = ({handleNameChange, setNameInput, nameInput, dbRef}) => {
         dbRef.push(messageInput)
         setMessageInput('')
         setNameInput('')
+        alert("Thank you for spreading good vibes!")
     };
 
     return (
