@@ -1,21 +1,18 @@
 import {useState} from 'react';
-import firebase from '../firebase';
 import NameInput from './NameInput';
 
-
-
-const PostMessage = ({handleNameChange, setNameInput, nameInput}) => {
+const PostMessage = ({handleNameChange, setNameInput, nameInput, dbRef}) => {
     const [messageInput, setMessageInput] = useState('');
-    const dbRef = firebase.database().ref(`/${nameInput.toLowerCase()}`);
+
     // fires every time the messageInput changes
     const handleMessageChange = (event) => {
         setMessageInput(event.target.value);
     };
 
-    // check if nameSearched is valid
     // fires on message submit
-    // pushes messageInput to fb
-    // resets messageInput
+        // check if nameSearched is valid
+        // pushes messageInput to fb
+        // resets messageInput
     const handlePost = (event) => {
         event.preventDefault();
 
@@ -27,6 +24,7 @@ const PostMessage = ({handleNameChange, setNameInput, nameInput}) => {
         dbRef.push(messageInput)
         setMessageInput('')
         setNameInput('')
+        alert("Thank you for spreading good vibes!")
     };
 
     return (

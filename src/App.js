@@ -1,5 +1,6 @@
 import './App.scss';
 import { useState } from 'react';
+import firebase from './firebase';
 
 import Header from './js/Header';
 import ShowMessages from './js/ShowMessages';
@@ -12,6 +13,7 @@ function App() {
   const [viewPostMessage, setViewPostMessage] = useState(false);
   const [showMyMessages, setShowMyMessages] = useState(false);
   const [nameInput, setNameInput] = useState('');
+  const dbRef = firebase.database().ref(`/${nameInput.toLowerCase()}`);
 
   // fires every time the nameInput changes
   const handleNameChange = (event) => {
@@ -22,8 +24,8 @@ function App() {
   }
 
   // mounts message component
-  // message component was unmounted on load
-  // message component is unmounted by change in nameInput
+    // message component is not mounted on load
+    // message component is unmounted by change in nameInput
   const handleShowMessages = (event) => {
     event.preventDefault();
     if (nameInput === '') {
@@ -57,7 +59,9 @@ function App() {
             {
               showMyMessages === true
               ?
-              <ShowMessages nameSearched={nameInput} />
+              <ShowMessages 
+                dbRef={dbRef} 
+              />
               : null
             }
           </>
@@ -71,6 +75,7 @@ function App() {
               handleNameChange={handleNameChange}
               nameInput={nameInput}
               setNameInput={setNameInput}
+              dbRef={dbRef}
             />
           </>
         : null}

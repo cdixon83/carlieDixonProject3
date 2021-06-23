@@ -1,5 +1,3 @@
-
-
 const NameInput = ({handleNameChange, nameInput, name}) => {
     return (
         <>
