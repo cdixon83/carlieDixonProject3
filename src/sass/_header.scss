@@ -1,14 +1,13 @@
 h1 {
     @include fontStyles(3rem, 900, italic, $light);
-    margin-left: 2%;
 }
 
 .nav {
-    @include fontStyles(1.5rem, 500);
+    @include fontStyles(1.2rem, 500);
     background-color: transparent;
     border: none;
-    padding: 0 10px 0 10px;
-    margin-top: 40px;
+    padding: 5px;
+    margin: 42px 0 42px 20px;
     border-bottom: transparent 2px solid;
 }
 

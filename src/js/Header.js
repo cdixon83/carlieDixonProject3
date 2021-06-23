@@ -23,7 +23,7 @@ const Header = ({setViewMessages, setViewPostMessage, setNameInput}) => {
 
     return (
         <>
-            <div className="outerFlexbox">
+            <div className="outerFlexbox wrapper">
                 <h1>Good Vibes Only</h1>
                 <div className="innerFlexbox">
                     <div>

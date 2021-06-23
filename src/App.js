@@ -44,7 +44,8 @@ function App() {
 
       {viewMessages === true
         ? 
-          <main>
+          <main className="wrapper">
+            <h2>See my Messages</h2>
             <form action="submit" className="viewMessages" onSubmit={handleShowMessages}>
               <NameInput 
                 handleNameChange={handleNameChange} 
@@ -64,7 +65,7 @@ function App() {
 
       {viewPostMessage === true
         ? 
-          <main>
+          <main className="wrapper">
             <h2>Give a compliment</h2>
             <PostMessage 
               handleNameChange={handleNameChange}
