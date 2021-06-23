@@ -31,19 +31,20 @@ const PostMessage = ({handleNameChange, setNameInput, nameInput}) => {
 
     return (
         <>
-            <NameInput 
-                name='Name of friend:'
-                handleNameChange={handleNameChange} 
-                nameInput={nameInput}
-            />
-            <form action="submit">
+            <form action="submit" className="giveCompliment">
+                <NameInput 
+                    handleNameChange={handleNameChange} 
+                    nameInput={nameInput}
+                    name='Name of friend:'
+                />
+
                 <label htmlFor="newMessage">Message:</label>
                 <textarea 
                     id="newMessage" 
                     onChange={handleMessageChange}
                     value={messageInput}
                 />
-                <button onClick={handlePost}>Send compliment</button>
+                <button onClick={handlePost} className="submit">Send compliment</button>
             </form>
         </>
     );

@@ -22,12 +22,12 @@ const Header = ({setViewMessages, setViewPostMessage, setNameInput}) => {
     };
 
     return (
-        <>
-            <div className="outerFlexbox">
+        <header>
+            <div className="outerFlexbox wrapper">
                 <h1>Good Vibes Only</h1>
                 <div className="innerFlexbox">
                     <div>
-                    <button className="nav" onClick={handlePostMessageClick}>Give a compliment</button>
+                    <button className="nav compliment" onClick={handlePostMessageClick}>Give a compliment</button>
                     </div>
                     <div>
                     <button className="nav" onClick={handleShowMessageClick}>See my messages</button>
@@ -36,8 +36,11 @@ const Header = ({setViewMessages, setViewPostMessage, setNameInput}) => {
             </div>
             <div className="imgContainer">
                 <img src={header} alt="Neon Rainbow Heart." />
+                <div className="textContainer">
+                    <p className="intro">Need some positive vibes today? People think you are totally awesome and they are telling you why in your messages. Your friends need a boost too.  Leave them a message so they know someone cares.  Social media can be a positive place, if we all spread love, joy and motivation.</p>
+                </div>
             </div>
-        </>
+        </header>
     )
 }
 

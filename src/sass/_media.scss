@@ -1,0 +1,54 @@
+@media (max-width: 700px) {
+    .textContainer {
+        position: static;
+        width: 100%;
+        align-items: center;
+        margin: 0;
+        padding: 0 7.5%;
+        background-color: $backColor;
+
+        p {
+            text-align: center;
+        }
+    }
+
+    h1 {
+        max-width: 40%;
+    }
+
+    .innerFlexbox {
+        flex-direction: column;
+    }
+
+    .nav {
+        @include buttonStyle (200px, 50px);
+        margin: 8px 0;
+        color: $light;
+        padding: 0;
+    }
+}
+
+@media (max-width: 475px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .submit,
+    .nav {
+        font-size: 0.9rem;
+        width: 150px;
+        height: 40px;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    span {
+        display: block;
+    }
+
+    li {
+        width: 85%;
+    }
+}

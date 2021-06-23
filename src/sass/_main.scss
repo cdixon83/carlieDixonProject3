@@ -1,0 +1,63 @@
+main {
+    min-height: 30vh;
+    background-color: $mainColor;
+    padding-top: 10px;
+}
+
+// styles for Give a Compliment and Message Views
+h2 {
+    @include fontStyles (2rem, 700);
+    text-align: center;
+    margin: 0;
+}
+
+.giveCompliment,
+.viewMessages {
+    @include flexbox (space-between, column);
+    width: 75%;
+    max-width: 400px;
+    margin: 0 auto;
+    label {
+        @include fontStyles (1.2rem, 400);
+        margin: 5px 0;
+    }
+    input,
+    textarea {
+        @include fontStyles (1.2rem, 400);
+        @include textBoxBorder;
+    }
+    textarea {
+        height: 180px;
+    }
+}
+
+// submit buttons
+.submit {
+    @include fontStyles (1.2rem, 400, normal, $light);
+    @include buttonStyle(200px, 50px);
+    margin: 25px auto;
+}
+
+.submit:hover {
+    background-color: $accent;
+}
+
+// messages
+ul {
+    @include flexbox (center);
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+li {
+    @include textBoxBorder ();
+    list-style: none;
+    background-color: $light;
+    width: 45%;
+    margin: 10px;
+    padding: 10px;
+    p {
+        @include fontStyles (1rem, 400, normal, $primary);
+        line-height: 35px;
+    }
+}

@@ -1,15 +1,22 @@
+header {
+    background-color: $mainColor;
+    min-height: 35vh;
+}
+
 h1 {
     @include fontStyles(3rem, 900, italic, $light);
-    margin-left: 2%;
 }
 
 .nav {
-    @include fontStyles(1.5rem, 500);
+    @include fontStyles(1.2rem, 500);
     background-color: transparent;
     border: none;
-    padding: 0 10px 0 10px;
-    margin-top: 40px;
+    padding: 5px;
     border-bottom: transparent 2px solid;
+}
+
+.compliment {
+    margin-right: 15px;
 }
 
 .nav:hover {
@@ -22,4 +29,24 @@ h1 {
 
 .innerFlexbox {
     @include flexbox(space-between);
+    align-self: center;
+}
+
+.imgContainer {
+    position: relative;
+}
+
+.textContainer {
+    @include flexbox (center);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 40%;
+    align-items: center;
+    margin: 2% 2% 2% 7.5%;
+    p{
+        text-align: left;
+    }
 }
