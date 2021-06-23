@@ -14,7 +14,6 @@ function App() {
   const [nameInput, setNameInput] = useState('');
 
   // fires every time the nameInput changes
-  // can this go in a component somewhere???????????????
   const handleNameChange = (event) => {
     const updatedName = event.target.value;
     setNameInput(updatedName);
@@ -42,10 +41,10 @@ function App() {
         setViewPostMessage={setViewPostMessage} 
         setNameInput={setNameInput}
       />
-
+      <main>
       {viewMessages === true
         ? 
-          <main>
+          <>
             <h2>See my Messages</h2>
             <form action="submit" className="viewMessages" onSubmit={handleShowMessages}>
               <NameInput 
@@ -61,22 +60,22 @@ function App() {
               <ShowMessages nameSearched={nameInput} />
               : null
             }
-          </main>
+          </>
         : null}
 
       {viewPostMessage === true
         ? 
-          <main>
+          <>
             <h2>Give a compliment</h2>
             <PostMessage 
               handleNameChange={handleNameChange}
               nameInput={nameInput}
               setNameInput={setNameInput}
             />
-          </main>
+          </>
         : null}
-
-        <Footer />
+      </main>
+      <Footer />
     </>
   )
 

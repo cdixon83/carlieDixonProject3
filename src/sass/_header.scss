@@ -1,5 +1,6 @@
 header {
     background-color: $mainColor;
+    min-height: 35vh;
 }
 
 h1 {
@@ -44,5 +45,8 @@ h1 {
     right: 0;
     width: 40%;
     align-items: center;
-    margin: 2%;
+    margin: 2% 2% 2% 7.5%;
+    p{
+        text-align: left;
+    }
 }
