@@ -21,11 +21,13 @@ h2 {
         @include fontStyles (1.2rem, 400);
         margin: 5px 0;
     }
+
     input,
     textarea {
         @include fontStyles (1.2rem, 400);
         @include textBoxBorder;
     }
+    
     textarea {
         height: 180px;
     }
@@ -58,7 +60,7 @@ li {
     margin: 10px;
     padding: 10px;
     p {
-        @include fontStyles (1rem, 400, normal, $primary);
+        color: $primary;
         line-height: 35px;
     }
 }
