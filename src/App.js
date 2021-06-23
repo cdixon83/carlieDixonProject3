@@ -37,51 +37,53 @@ function App() {
   }
 
   return(
-    <>
-      <Header 
-        setViewMessages={setViewMessages} 
-        setViewPostMessage={setViewPostMessage} 
-        setNameInput={setNameInput}
-      />
-      <main>
-      {viewMessages === true
-        ? 
-          <>
-            <h2>See my Messages</h2>
-            <form action="submit" className="viewMessages" onSubmit={handleShowMessages}>
-              <NameInput 
-                handleNameChange={handleNameChange} 
-                nameInput={nameInput}
-                name='What is your name?'
-              />
-              <button type="submit" className="submit">See messages</button>
-            </form>
-            {
-              showMyMessages === true
-              ?
-              <ShowMessages 
-                dbRef={dbRef} 
-              />
-              : null
-            }
-          </>
-        : null}
+    <div className="pageContainer">
+      <div className="contentWrap">
+        <Header 
+          setViewMessages={setViewMessages} 
+          setViewPostMessage={setViewPostMessage} 
+          setNameInput={setNameInput}
+        />
+        <main>
+        {viewMessages === true
+          ? 
+            <>
+              <h2>See my Messages</h2>
+              <form action="submit" className="viewMessages" onSubmit={handleShowMessages}>
+                <NameInput 
+                  handleNameChange={handleNameChange} 
+                  nameInput={nameInput}
+                  name='What is your full name?'
+                />
+                <button type="submit" className="submit">See messages</button>
+              </form>
+              {
+                showMyMessages === true
+                ?
+                <ShowMessages 
+                  dbRef={dbRef} 
+                />
+                : null
+              }
+            </>
+          : null}
 
-      {viewPostMessage === true
-        ? 
-          <>
-            <h2>Give a compliment</h2>
-            <PostMessage 
-              handleNameChange={handleNameChange}
-              nameInput={nameInput}
-              setNameInput={setNameInput}
-              dbRef={dbRef}
-            />
-          </>
-        : null}
-      </main>
+        {viewPostMessage === true
+          ? 
+            <>
+              <h2>Give a compliment</h2>
+              <PostMessage 
+                handleNameChange={handleNameChange}
+                nameInput={nameInput}
+                setNameInput={setNameInput}
+                dbRef={dbRef}
+              />
+            </>
+          : null}
+        </main>
+      </div>
       <Footer />
-    </>
+    </div>
   )
 
 }
