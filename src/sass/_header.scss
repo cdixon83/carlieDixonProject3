@@ -19,7 +19,8 @@ h1 {
     margin-right: 15px;
 }
 
-.nav:hover {
+.nav:hover,
+.nav:focus {
     border-bottom: $accent 2px solid;
 }
 
