@@ -1,7 +1,13 @@
+main {
+    background-color: $mainColor;
+    padding-top: 10px;
+}
+
 // styles for Give a Compliment and Message Views
 h2 {
     @include fontStyles (2rem, 700);
     text-align: center;
+    margin: 0;
 }
 
 .giveCompliment,

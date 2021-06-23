@@ -3,8 +3,9 @@ import { useState } from 'react';
 
 import Header from './js/Header';
 import ShowMessages from './js/ShowMessages';
-import PostMessage from './js/MessagePost';
+import PostMessage from './js/PostMessage';
 import NameInput from './js/NameInput';
+import Footer from './js/Footer';
 
 function App() {
   const [viewMessages, setViewMessages] = useState(false);
@@ -44,7 +45,7 @@ function App() {
 
       {viewMessages === true
         ? 
-          <main className="wrapper">
+          <main>
             <h2>See my Messages</h2>
             <form action="submit" className="viewMessages" onSubmit={handleShowMessages}>
               <NameInput 
@@ -65,7 +66,7 @@ function App() {
 
       {viewPostMessage === true
         ? 
-          <main className="wrapper">
+          <main>
             <h2>Give a compliment</h2>
             <PostMessage 
               handleNameChange={handleNameChange}
@@ -74,6 +75,8 @@ function App() {
             />
           </main>
         : null}
+
+        <Footer />
     </>
   )
 

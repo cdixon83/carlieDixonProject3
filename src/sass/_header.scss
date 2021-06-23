@@ -1,3 +1,7 @@
+header {
+    background-color: $mainColor;
+}
+
 h1 {
     @include fontStyles(3rem, 900, italic, $light);
 }
@@ -7,8 +11,11 @@ h1 {
     background-color: transparent;
     border: none;
     padding: 5px;
-    margin: 42px 0 42px 20px;
     border-bottom: transparent 2px solid;
+}
+
+.compliment {
+    margin-right: 15px;
 }
 
 .nav:hover {
@@ -21,4 +28,21 @@ h1 {
 
 .innerFlexbox {
     @include flexbox(space-between);
+    align-self: center;
+}
+
+.imgContainer {
+    position: relative;
+}
+
+.textContainer {
+    @include flexbox (center);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 40%;
+    align-items: center;
+    margin: 2%;
 }

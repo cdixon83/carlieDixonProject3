@@ -1,8 +1,25 @@
 body {
-    background-color: $mainColor;
+    background-color: $backColor;
+}
+
+footer {
+    background-color: $backColor;
+    margin: 0;
 }
 
 img {
     max-width: 100%;
     display: block;
+}
+
+.wrapper {
+    max-width: 1500px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+p,
+a {
+    @include fontStyles (1rem, 400, normal, $light);
+    text-align: center;
 }
