@@ -3,6 +3,7 @@ import { useState } from 'react';
 import firebase from './firebase';
 
 import Header from './js/Header';
+import AlertView from './js/AlertView';
 import ShowMessages from './js/ShowMessages';
 import PostMessage from './js/PostMessage';
 import NameInput from './js/NameInput';
@@ -13,7 +14,9 @@ function App() {
   const [viewPostMessage, setViewPostMessage] = useState(false);
   const [showMyMessages, setShowMyMessages] = useState(false);
   const [nameInput, setNameInput] = useState('');
+  const [showAlertView, setShowAlertView] = useState(false);
   const dbRef = firebase.database().ref(`/${nameInput.toLowerCase()}`);
+  
 
   // fires every time the nameInput changes
   const handleNameChange = (event) => {
@@ -29,11 +32,10 @@ function App() {
   const handleShowMessages = (event) => {
     event.preventDefault();
     if (nameInput === '') {
-            return (
-                alert("But wait, we don't know how you are, how can we find all of your wonderful messages if you don't enter your name?")
-            )
-        }  
-    setShowMyMessages(true);
+      setShowAlertView(true);
+    } else { 
+      setShowMyMessages(true);
+    }
   }
 
   return(
@@ -45,6 +47,10 @@ function App() {
           setNameInput={setNameInput}
         />
         <main>
+          { showAlertView === true
+            ? <AlertView setShowAlertView={setShowAlertView} />
+              : null}
+
         {viewMessages === true
           ? 
             <>

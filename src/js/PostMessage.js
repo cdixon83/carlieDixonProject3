@@ -1,8 +1,12 @@
 import {useState} from 'react';
 import NameInput from './NameInput';
+import AlertSend from './AlertSend';
+import AlertSentConfirm from './AlertSentConfirm';
 
 const PostMessage = ({handleNameChange, setNameInput, nameInput, dbRef}) => {
     const [messageInput, setMessageInput] = useState('');
+    const [showAlertSend, setShowAlertSend] = useState(false);
+    const [showSentConfirm, setShowSentConfirm] = useState(false);
 
     // fires every time the messageInput changes
     const handleMessageChange = (event) => {
@@ -17,18 +21,25 @@ const PostMessage = ({handleNameChange, setNameInput, nameInput, dbRef}) => {
         event.preventDefault();
 
         if (nameInput === '' || messageInput === '') {
-            return (
-                alert("Your friends will never know how awesome they are if you don't enter their name and a message!")
-            )
-        } 
+            setShowAlertSend(true);
+        } else {
         dbRef.push(messageInput)
         setMessageInput('')
         setNameInput('')
-        alert("Thank you for spreading good vibes!")
+        setShowSentConfirm(true)
+        }
     };
 
     return (
         <>
+            {showAlertSend === true
+                ? <AlertSend setShowAlertSend={setShowAlertSend} />
+                : null}
+
+            {showSentConfirm === true
+                ? <AlertSentConfirm setShowSentConfirm={setShowSentConfirm} />
+                : null}
+
             <form action="submit" className="giveCompliment">
                 <NameInput 
                     handleNameChange={handleNameChange} 
