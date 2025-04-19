@@ -5,15 +5,16 @@ import 'firebase/database';
 // Initialize Firebase
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyD0HTk0VeASzF3E5BqO6e7tMNV5OHRV6xk",
-    authDomain: "good-vibes-2021-july.firebaseapp.com",
-    projectId: "good-vibes-2021-july",
-    storageBucket: "good-vibes-2021-july.appspot.com",
-    messagingSenderId: "341405034707",
-    appId: "1:341405034707:web:04688d451ba94256a50c26"
+  apiKey: "AIzaSyBdC3d3WUksg8YkG-JPvCOooHOol6SMVgY",
+  authDomain: "good-vibes-2025.firebaseapp.com",
+  projectId: "good-vibes-2025",
+  storageBucket: "good-vibes-2025.firebasestorage.app",
+  messagingSenderId: "386033564091",
+  appId: "1:386033564091:web:a75c41b1b8e13b6e9fec9e",
+  measurementId: "G-8CDN1D9WT4"
 
 };
-  // Initialize Firebase
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 
